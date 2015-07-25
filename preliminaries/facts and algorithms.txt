@@ -1,0 +1,29 @@
+
+Where max number of pizzas and toppings per pizza allows, every pizza will meet all the needs and have none of the hates of at least 1 person.
+
+Conversely, under the same conditions each person will have at least 1 pizza that meets all their needs and has none of their hates.
+    
+(What about when conditions don't allow?)
+
+Each person MUST get every topping they NEED, and SHOULD get at least 1 more topping that they want than toppings that they meh.
+
+(Meh is a verb now.)
+
+ALGORISHM
+
+Determine where, if anywhere, needs and hates conflict between persons and put them in separate groups as needed ("harmonies").
+
+Within each harmony:
+    Construct a "working pizza" meeting all of the harmony's needs. (Also remember it as the "needs pizza" for use as a fallback?)
+    
+    < If there are no want/meh conflicts in the harmony (and topping limits allow?), put everyone's wants on the working pizza and return it to the event.
+    
+    Otherwise, construct a list of all wanted toppings in the harmony and calculate a rating for each:
+        +1 for each person who wants it
+        -1 for each person who mehs it
+    Toppings with a rating of at least 1(?) will be added to the working pizza.
+    
+    If working pizza now has at least 1 more wanted topping than mehed topping for each person in harmony.
+
+
+

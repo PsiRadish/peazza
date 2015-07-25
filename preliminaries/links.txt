@@ -1,0 +1,70 @@
+https://www.draw.io/
+https://generalassembly.mybalsamiq.com/projects/wdisea03/edit
+
+
+
+v Cheese
+_ mozzarella
+_ provolone
+_ cheddar
+_ parmesan
+v Sauce
+_ red
+_ white
+_ pesto
+v Meat
+_ pepperoni
+_ italian sausage
+_ premium salami
+_ classic meatball
+_ slow-roasted ham
+_ hardwood smoked bacon
+_ grilled chicken
+_ beef
+_ seasoned pork
+_ anchovies
+v Fruits/Veggies
+_ black olives
+_ mushrooms
+_ pineapple
+_ cherry peppers
+_ red onions
+_ spinach
+_ diced roma tomatoes
+_ sliced jalapeño peppers
+_ green bell peppers
+_ sliced banana peppers
+
+{color:red}_text{color}
+
+● ○ ○ ○ ○ ○		{color:red}I need it!{color}
+● ○ ○ ○ ○ ○		{color:red}I need it!{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+● ○ ○ ○ ○ ○		{color:red}I need it!{color}
+● ○ ○ ○ ○ ○		{color:red}I need it!{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ● ○ ○ ○ ○		I want it.
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}
+○ ○ ● ○ ○ ○		{color:#808080}I don't care.{color}

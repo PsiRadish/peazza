@@ -1,0 +1,8 @@
+As a pizza event organizer, I want to feed everyone so everyone will be happy.
+
+
+As a vegetarian going to a pizza event, I need there to be a pizza without meat so I can eat it.
+
+
+As an incredibly average person going to a pizza event, I want pepperoni pizza for reasons I have never examined.
+
