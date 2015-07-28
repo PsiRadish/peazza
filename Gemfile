@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+#gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -26,8 +26,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootswatch-rails', '~> 3.3.5'
+
 #gem 'bootstrap_form'
-gem 'bootstrap_form', :git => "git://github.com/PsiRadish/rails-bootstrap-forms", :branch => "master"
+gem 'bootstrap_form', :git => "git://github.com/PsiRadish/rails-bootstrap-forms", :branch => "master"  # customized to format inline form errors as full sentences with no duplicate messages
+
 
 gem 'rails_12factor', group: :production
 

@@ -1,0 +1,61 @@
+html, body
+{
+    width: 100%;
+}
+
+#uber-container
+{
+    // width: 100%;
+    max-width: 1032px;
+}
+
+nav#title
+{
+    margin: 0 auto;
+    // padding: 10px;
+    height: 80px;
+    
+    .navbar-header
+    {
+        margin-bottom: 11px; // pushes collapse drop-down so it starts at bottom border
+    }
+    
+    .navbar-toggle
+    {
+        margin-top: 13px;  // 8px + 5
+    }
+    
+    a.navbar-brand
+    {
+        padding-top: 0;
+        padding-bottom: 0;
+        
+        .h1, img
+        {
+            color: $navbar-default-color;
+            display: inline;
+            vertical-align: middle;
+            margin: 0;
+        }
+    }
+    
+    a.navbar-brand:hover,
+    a.navbar-brand:focus
+    {
+        .h1
+        {
+            color:              $navbar-default-link-hover-color;
+            background-color:   $navbar-default-link-hover-bg;
+        }
+    }
+}
+
+.nav-pad
+{
+    padding-top: 10px;
+}
+
+.navbar-collapse
+{
+    background:                 $navbar-default-bg;
+} 
