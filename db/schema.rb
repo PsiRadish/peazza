@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729022834) do
+ActiveRecord::Schema.define(version: 20150729043649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20150729022834) do
   end
 
   add_index "accounts", ["person_id"], name: "index_accounts_on_person_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.string   "location_street_address"
+    t.string   "location_city"
+    t.string   "location_state",          limit: 12
+    t.string   "location_zip",            limit: 9
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["account_id"], name: "index_events_on_account_id", using: :btree
 
   create_table "friendships", force: true do |t|
     t.integer "friender_id"
@@ -83,5 +97,7 @@ ActiveRecord::Schema.define(version: 20150729022834) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "toppings", ["name", "category"], name: "index_toppings_on_name_and_category", unique: true, using: :btree
 
 end

@@ -6,7 +6,8 @@ $font-family-sans-serif:    "Helvetica Neue", Helvetica, Verdana, Arial, sans-se
 // $font-family-serif:       Georgia, "Times New Roman", Times, serif;
 $font-family-monospace:     DejaVu Sans Mono, Menlo, Monaco, Consolas, monospace;
 //$font-family-base:          $font-family-sans-serif;
-$font-family-base:          Merriweather, Merriweather Sans, Neuton, Alegreya, Alegreya Sans, Lora, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+$font-family-base:          Arimo, Merriweather Sans, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+// $font-size-base:           15px;
 
 $body-bg:                   #FC0;
 // $text-color:             white;
@@ -31,3 +32,6 @@ $navbar-default-link-disabled-color:        #808000;
 
 //// New variables
 // $app-bg-color:                              #FC0;
+$navbar-font-size:                          1.1428571428571428571428571428571em;
+$navbar-link-side-margin:                   5px;
+$navbar-link-border-radius:                 25px;

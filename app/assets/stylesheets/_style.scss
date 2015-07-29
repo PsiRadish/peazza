@@ -33,29 +33,6 @@ nav#title
         margin-bottom: 11px; // pushes collapse drop-down so it starts at bottom border
     }
     
-    .navbar-toggle
-    {
-        margin-top: 12px;  // 8px + 5 - 1
-        border-radius: 15px;
-        border-width: 2px;
-        border-color: transparent;
-        
-        .icon-bar
-        {
-            background-color: $navbar-default-color;
-        }
-    }
-    .navbar-toggle:hover, .navbar-toggle:focus
-    {
-        background: none;
-        
-        border-color: $navbar-default-link-hover-color;
-        .icon-bar
-        {
-            background-color: $navbar-default-link-hover-color;
-        }
-    }
-    
     a.navbar-brand
     {
         padding-top: 0;
@@ -81,17 +58,68 @@ nav#title
             background-color:   $navbar-default-link-hover-bg;
         }
     }
-}
-
-.nav-pad
-{
-    padding-top: 10px;
     
-    ul
+    .nav-pad
     {
-        margin-top: 5px;
+        padding-top: 10px;
+        
+        ul
+        {
+            margin-top: 5px;
+        }
+    }
+    
+    .navbar-right
+    {
+        margin-right: 15px;
+    }
+    
+    ul.nav
+    {
+        li > a
+        {
+            margin: 0 $navbar-link-side-margin;
+        }
+        li > a:hover, li > a:focus
+        {
+            border-radius: $navbar-link-border-radius;
+            border: $navbar-default-link-hover-color 2px solid;
+            margin-right: $navbar-link-side-margin - 2;
+            margin-top: -2px;
+            margin-left: $navbar-link-side-margin - 2;
+        }
+    }
+    
+    .navbar-toggle
+    {
+        margin-top: 12px;  // 8px + 5 - 1
+        border-radius: 15px;
+        border-width: 2px;
+        border-color: transparent;
+        
+        .icon-bar
+        {
+            background-color: $navbar-default-color;
+        }
+    }
+    .navbar-toggle:hover, .navbar-toggle:focus
+    {
+        background: none;
+        
+        border-color: $navbar-default-link-hover-color;
+        .icon-bar
+        {
+            background-color: $navbar-default-link-hover-color;
+        }
     }
 }
+
+#title-nav
+{
+    font-size: $navbar-font-size;
+    font-weight: 700;
+}
+
 @media (max-width: $grid-float-breakpoint-max)
 {
     #title-nav.navbar-collapse
