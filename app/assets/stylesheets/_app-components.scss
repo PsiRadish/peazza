@@ -1,0 +1,65 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+{
+    color: inherit;
+}
+h1, h2, h3, .h1, .h2, .h3
+{
+    font-family: Pacifico, Quicksand, serif;
+}
+
+.rise   // like a well, but opposite
+{
+    @import "rise";
+    // background-color: #288EDF;
+    // border-color: #2074B6;
+    // border-radius: 4px;
+    // border-style: solid;
+    // border-width: 1px;
+    // box-shadow: 0px 1px 1px 1px rgba(255, 255, 255, 0.36) inset, 0px -1px rgba(0, 0, 0, 0.18) inset, 0px 2px rgba(0, 0, 0, 0.05);
+    // box-sizing: border-box;
+    // color: #FFF;
+    // margin-bottom: 20px;
+    // padding: 19px;
+    // // text-shadow: rgba(0, 0, 0, 0.36) 0px -1px 0px;
+}
+.rise-sm-round, .rise-sm
+{
+    padding: 9px;
+}
+.rise-sm, .well-sm
+{
+    border-radius: 3px;
+}
+
+@mixin color-rise($fgcolor, $bgcolor)
+{
+    color:            $fgcolor;
+    background-color: $bgcolor;
+    border-color:     mix(black, $bgcolor, 18%);
+    //border-color:     darken($bgcolor, 18%);
+    
+    .well
+    {
+        // border-color: darken($bgcolor, 18%) $bgcolor lighten($bgcolor, 18%);
+        color: initial;
+        border-color: mix(black, $bgcolor, 36%) $bgcolor mix(white, $bgcolor, 36%);
+    }
+}
+
+.rise.purple
+{
+    @include color-rise(white, purple);
+}
+
+///////////////////////////
+// TEST
+// .well
+// {
+//     background-color: darken(#288EDF, 18%);
+// }
+// .well.well-sm
+// {
+//     background-color: mix(black, #288EDF, 18%);
+// }
+
+///////////////////////////

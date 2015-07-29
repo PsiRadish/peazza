@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728111612) do
+ActiveRecord::Schema.define(version: 20150729022834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,19 +26,60 @@ ActiveRecord::Schema.define(version: 20150728111612) do
 
   add_index "accounts", ["person_id"], name: "index_accounts_on_person_id", using: :btree
 
+  create_table "friendships", force: true do |t|
+    t.integer "friender_id"
+    t.integer "friend_id"
+  end
+
   create_table "people", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "people_hate_toppings", id: false, force: true do |t|
+    t.integer  "person_id"
+    t.integer  "topping_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people_hate_toppings", ["person_id"], name: "index_people_hate_toppings_on_person_id", using: :btree
+  add_index "people_hate_toppings", ["topping_id"], name: "index_people_hate_toppings_on_topping_id", using: :btree
+
+  create_table "people_meh_toppings", id: false, force: true do |t|
+    t.integer  "person_id"
+    t.integer  "topping_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people_meh_toppings", ["person_id"], name: "index_people_meh_toppings_on_person_id", using: :btree
+  add_index "people_meh_toppings", ["topping_id"], name: "index_people_meh_toppings_on_topping_id", using: :btree
+
+  create_table "people_need_toppings", id: false, force: true do |t|
+    t.integer  "person_id"
+    t.integer  "topping_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people_need_toppings", ["person_id"], name: "index_people_need_toppings_on_person_id", using: :btree
+  add_index "people_need_toppings", ["topping_id"], name: "index_people_need_toppings_on_topping_id", using: :btree
+
+  create_table "people_want_toppings", id: false, force: true do |t|
+    t.integer  "person_id"
+    t.integer  "topping_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people_want_toppings", ["person_id"], name: "index_people_want_toppings_on_person_id", using: :btree
+  add_index "people_want_toppings", ["topping_id"], name: "index_people_want_toppings_on_topping_id", using: :btree
+
   create_table "toppings", force: true do |t|
     t.string   "name"
-    t.string   "type"
-    t.integer  "needer_id"
-    t.integer  "wanter_id"
-    t.integer  "meher_id"
-    t.integer  "hater_id"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

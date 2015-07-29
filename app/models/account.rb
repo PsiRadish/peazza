@@ -8,4 +8,11 @@ class Account < ActiveRecord::Base
     validates :password, presence: true, on: :create
     
     belongs_to :person
+    
+    has_many :friendships, :foreign_key => "friender_id"
+    has_many :friends, :through => :friendships
+    
+    has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :frienders, :through => :inverse_friendships, :source => :friender
+    
 end

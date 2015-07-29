@@ -1,6 +1,8 @@
+
 html, body
 {
     width: 100%;
+    // background-color: $app-bg-color;
 }
 
 #uber-container
@@ -9,11 +11,22 @@ html, body
     max-width: 1032px;
 }
 
+.navbar
+{
+    z-index:                    9001;
+}
+
 nav#title
 {
-    margin: 0 auto;
+    margin: 0 auto 20px;
     // padding: 10px;
     height: 80px;
+    padding: 0;
+    
+    &.rise
+    {
+        @include color-rise(#FFF, $navbar-default-bg);
+    }
     
     .navbar-header
     {
@@ -22,7 +35,25 @@ nav#title
     
     .navbar-toggle
     {
-        margin-top: 13px;  // 8px + 5
+        margin-top: 12px;  // 8px + 5 - 1
+        border-radius: 15px;
+        border-width: 2px;
+        border-color: transparent;
+        
+        .icon-bar
+        {
+            background-color: $navbar-default-color;
+        }
+    }
+    .navbar-toggle:hover, .navbar-toggle:focus
+    {
+        background: none;
+        
+        border-color: $navbar-default-link-hover-color;
+        .icon-bar
+        {
+            background-color: $navbar-default-link-hover-color;
+        }
     }
     
     a.navbar-brand
@@ -34,6 +65,8 @@ nav#title
         {
             color: $navbar-default-color;
             display: inline;
+            // font-family: Pacifico, Quicksand, serif;
+            // font-weight: bold;
             vertical-align: middle;
             margin: 0;
         }
@@ -53,9 +86,33 @@ nav#title
 .nav-pad
 {
     padding-top: 10px;
+    
+    ul
+    {
+        margin-top: 5px;
+    }
+}
+@media (max-width: $grid-float-breakpoint-max)
+{
+    #title-nav.navbar-collapse
+    {
+        // @extend .rise;   // scope fail
+        @import "rise";
+        
+        &  // mixin colors won't take without &{} wrapper
+        {
+            @include color-rise(white, $navbar-default-bg);
+            padding-top:    0;
+            padding-bottom: 0;
+            border-top-width: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
 }
 
-.navbar-collapse
+section#content
 {
-    background:                 $navbar-default-bg;
-} 
+    z-index: 0;
+    // font-weight: 700;
+}
