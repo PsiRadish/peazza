@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   get 'home/index'
   
-  resources :users, only: [:new, :create, :show]  
+  resources :accounts, only: [:new, :create, :show]  
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

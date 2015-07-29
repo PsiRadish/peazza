@@ -18,39 +18,62 @@ html, body
 
 nav#title
 {
-    margin: 0 auto 20px;
-    // padding: 10px;
-    height: 80px;
-    padding: 0;
+    margin: 0 auto $line-height-computed;
+    // padding: 0;
     
     &.rise
     {
         @include color-rise(#FFF, $navbar-default-bg);
+        padding: 0;
     }
     
     .navbar-header
     {
-        margin-bottom: 11px; // pushes collapse drop-down so it starts at bottom border
+        // margin-bottom: 11px; // pushes collapse drop-down so it starts at bottom border
     }
     
-    a.navbar-brand
+    .navbar-toggle
     {
-        padding-top: 0;
-        padding-bottom: 0;
+        // margin-top: 12px;  // 8px + 5 - 1
+        
+        border-radius: 15px;
+        border-width: 2px;
+        border-color: transparent;
+        
+        @include navbar-vertical-align(36px);
+                
+        .icon-bar
+        {
+            background-color: $navbar-default-color;
+        }
+        
+        &:hover, &:focus
+        {
+            background: none;
+                        
+            border-color: $navbar-default-link-hover-color;
+            .icon-bar
+            {
+                background-color: $navbar-default-link-hover-color;
+            }
+        }
+    }
+    
+    .navbar-brand
+    {
+        padding-top: ($navbar-height - $app-navbar-brand-logo-height) / 2;
+        padding-bottom: ($navbar-height - $app-navbar-brand-logo-height) / 2;
         
         .h1, img
         {
             color: $navbar-default-color;
             display: inline;
-            // font-family: Pacifico, Quicksand, serif;
-            // font-weight: bold;
             vertical-align: middle;
             margin: 0;
         }
     }
-    
-    a.navbar-brand:hover,
-    a.navbar-brand:focus
+    .navbar-brand:hover,
+    .navbar-brand:focus
     {
         .h1
         {
@@ -59,72 +82,56 @@ nav#title
         }
     }
     
-    .nav-pad
+    #title-nav
     {
-        padding-top: 10px;
-        
-        ul
+        font-size: $navbar-font-size;
+    }
+    
+    .navbar-nav
+    {
+        li > a
         {
-            margin-top: 5px;
+            // font-weight: 700;
         }
     }
     
     .navbar-right
     {
-        margin-right: 15px;
+        margin-right: $navbar-padding-horizontal;
     }
-    
-    ul.nav
+}
+
+@media (min-width: $grid-float-breakpoint)     // navbar uncollapsed
+{
+    .navbar-nav
     {
         li > a
         {
-            margin: 0 $navbar-link-side-margin;
+            margin: ($navbar-padding-vertical / 2) $navbar-link-side-margin;
+            padding: ($navbar-padding-vertical / 2) $navbar-padding-horizontal
         }
         li > a:hover, li > a:focus
         {
             border-radius: $navbar-link-border-radius;
             border: $navbar-default-link-hover-color 2px solid;
-            margin-right: $navbar-link-side-margin - 2;
-            margin-top: -2px;
-            margin-left: $navbar-link-side-margin - 2;
+            margin: ($navbar-padding-vertical / 2 - 2) ($navbar-link-side-margin - 2);
         }
-    }
-    
-    .navbar-toggle
-    {
-        margin-top: 12px;  // 8px + 5 - 1
-        border-radius: 15px;
-        border-width: 2px;
-        border-color: transparent;
         
-        .icon-bar
+        li > span
         {
-            background-color: $navbar-default-color;
-        }
-    }
-    .navbar-toggle:hover, .navbar-toggle:focus
-    {
-        background: none;
-        
-        border-color: $navbar-default-link-hover-color;
-        .icon-bar
-        {
-            background-color: $navbar-default-link-hover-color;
+            display: block;
+            padding: $navbar-padding-vertical $navbar-padding-horizontal;
+            line-height: $line-height-computed;
         }
     }
 }
 
-#title-nav
+@media (max-width: $grid-float-breakpoint-max) // navbar collapsed
 {
-    font-size: $navbar-font-size;
-    font-weight: 700;
-}
-
-@media (max-width: $grid-float-breakpoint-max)
-{
-    #title-nav.navbar-collapse
+    .navbar-collapse
     {
         // @extend .rise;   // scope fail
+        
         @import "rise";
         
         &  // mixin colors won't take without &{} wrapper
@@ -132,9 +139,25 @@ nav#title
             @include color-rise(white, $navbar-default-bg);
             padding-top:    0;
             padding-bottom: 0;
+            margin: 0;
             border-top-width: 0;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+        }
+        
+        .navbar-nav
+        {
+            .hide-when-collapsed
+            {
+                display: none;
+            }
+            
+            li > a:hover, li > a:focus
+            {
+                border-radius: $navbar-link-border-radius-collapsed;
+                border: $navbar-default-link-hover-color 2px solid;
+                margin: -2px;
+            }
         }
     }
 }

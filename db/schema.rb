@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729043649) do
+ActiveRecord::Schema.define(version: 20150729205831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,21 @@ ActiveRecord::Schema.define(version: 20150729043649) do
   add_index "events", ["account_id"], name: "index_events_on_account_id", using: :btree
 
   create_table "friendships", force: true do |t|
-    t.integer "friender_id"
-    t.integer "friend_id"
+    t.integer  "friender_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["event_id"], name: "index_invitations_on_event_id", using: :btree
+  add_index "invitations", ["person_id"], name: "index_invitations_on_person_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "name"
@@ -90,6 +102,25 @@ ActiveRecord::Schema.define(version: 20150729043649) do
 
   add_index "people_want_toppings", ["person_id"], name: "index_people_want_toppings_on_person_id", using: :btree
   add_index "people_want_toppings", ["topping_id"], name: "index_people_want_toppings_on_topping_id", using: :btree
+
+  create_table "pizzas", force: true do |t|
+    t.string   "name"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pizzas", ["event_id"], name: "index_pizzas_on_event_id", using: :btree
+
+  create_table "pizzas_toppings", id: false, force: true do |t|
+    t.integer  "pizza_id"
+    t.integer  "topping_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pizzas_toppings", ["pizza_id"], name: "index_pizzas_toppings_on_pizza_id", using: :btree
+  add_index "pizzas_toppings", ["topping_id"], name: "index_pizzas_toppings_on_topping_id", using: :btree
 
   create_table "toppings", force: true do |t|
     t.string   "name"

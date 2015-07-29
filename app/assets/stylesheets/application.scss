@@ -17,11 +17,11 @@
 
 @import "bootstrap-sprockets";
 
-@import "bootswatch/lumen/variables";
-
 
 @import "app-vars";  // overrides and new vars
 
+
+@import "bootswatch/lumen/variables";
 
 @import "bootstrap";
 

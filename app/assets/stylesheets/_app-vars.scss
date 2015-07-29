@@ -9,16 +9,20 @@ $font-family-monospace:     DejaVu Sans Mono, Menlo, Monaco, Consolas, monospace
 $font-family-base:          Arimo, Merriweather Sans, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
 // $font-size-base:           15px;
 
-$body-bg:                   #FC0;
-// $text-color:             white;
+$body-bg:                   orange;
+
 
 //** Global textual link color.
 $link-color:                                #FFC;
 $link-hover-color:                          yellow;
 //$link-hover-decoration:                   underline;
 
+$navbar-height:                             80px;
+// $line-height-computed:                      floor(($font-size-base * $line-height-base)); // no change, just defining it so I can use it
+// $navbar-padding-vertical:                   (($navbar-height - $line-height-computed) / 4);
+
 $navbar-default-color:                      white;
-$navbar-default-bg:                         #FF4136;
+$navbar-default-bg:                         red;
 $navbar-default-border:                     mix(black, $navbar-default-bg, 18%);
 
 $navbar-default-link-color:                 white;
@@ -35,3 +39,15 @@ $navbar-default-link-disabled-color:        #808000;
 $navbar-font-size:                          1.1428571428571428571428571428571em;
 $navbar-link-side-margin:                   5px;
 $navbar-link-border-radius:                 25px;
+$navbar-link-border-radius-collapsed:       20px;
+$app-navbar-brand-logo-height:              60px;
+
+$app-red:                                   #FF4136;
+$app-orange:                                #FC0;
+
+
+//// And overrides again
+ $body-bg:                                   $app-orange;
+//$body-bg:                                   $app-red;
+//$navbar-default-bg:                         $app-orange;
+ $navbar-default-bg:                         $app-red;

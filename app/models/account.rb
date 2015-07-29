@@ -15,4 +15,5 @@ class Account < ActiveRecord::Base
     has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
     has_many :frienders, :through => :inverse_friendships, :source => :friender
     
+    has_many :events
 end

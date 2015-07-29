@@ -1,3 +1,5 @@
+// components
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 {
     color: inherit;
@@ -31,6 +33,12 @@ h1, h2, h3, .h1, .h2, .h3
     border-radius: 3px;
 }
 
+@mixin color-well($fgcolor, $bgcolor)
+{
+    color: $fgcolor;
+    border-color: mix(black, $bgcolor, 36%)  $bgcolor  mix(white, $bgcolor, 36%);
+}
+
 @mixin color-rise($fgcolor, $bgcolor)
 {
     color:            $fgcolor;
@@ -40,7 +48,6 @@ h1, h2, h3, .h1, .h2, .h3
     
     .well
     {
-        // border-color: darken($bgcolor, 18%) $bgcolor lighten($bgcolor, 18%);
         color: initial;
         border-color: mix(black, $bgcolor, 36%) $bgcolor mix(white, $bgcolor, 36%);
     }
@@ -50,16 +57,3 @@ h1, h2, h3, .h1, .h2, .h3
 {
     @include color-rise(white, purple);
 }
-
-///////////////////////////
-// TEST
-// .well
-// {
-//     background-color: darken(#288EDF, 18%);
-// }
-// .well.well-sm
-// {
-//     background-color: mix(black, #288EDF, 18%);
-// }
-
-///////////////////////////

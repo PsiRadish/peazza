@@ -5,4 +5,7 @@ class Person < ActiveRecord::Base
     has_and_belongs_to_many :hated_toppings, :class_name => "Topping", :join_table => "people_hate_toppings"
     
     has_one :account
+    
+    has_many :invitations
+    has_many :events, :through => :invitations
 end
