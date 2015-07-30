@@ -1,4 +1,5 @@
 class Account < ActiveRecord::Base
+    
     has_secure_password
     
     validates :email,    uniqueness: { case_sensitive: false, message: "email address in use" },
@@ -16,4 +17,8 @@ class Account < ActiveRecord::Base
     has_many :frienders, :through => :inverse_friendships, :source => :friender
     
     has_many :events
+    
+    def self.authenticate email, password
+        Account.find_by_email(email).try(:authenticate, password)
+    end
 end

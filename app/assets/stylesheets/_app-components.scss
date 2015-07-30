@@ -8,6 +8,10 @@ h1, h2, h3, .h1, .h2, .h3
 {
     font-family: Pacifico, Quicksand, serif;
 }
+br
+{
+    line-height: 0;
+}
 
 .rise   // like a well, but opposite
 {
@@ -48,12 +52,22 @@ h1, h2, h3, .h1, .h2, .h3
     
     .well
     {
-        color: initial;
-        border-color: mix(black, $bgcolor, 36%) $bgcolor mix(white, $bgcolor, 36%);
+        // color: initial;
+        // border-color: mix(black, $bgcolor, 36%) $bgcolor mix(white, $bgcolor, 36%);
+        @include color-well(initial, $bgcolor);
     }
 }
 
+.rise.orange
+{
+    @include color-rise(white, $app-orange);
+}
+.rise.red
+{
+    @include color-rise(white, $app-red);
+}
 .rise.purple
 {
-    @include color-rise(white, purple);
+    // @include color-rise(white, purple);
+    @include color-rise(white, $app-purple);
 }

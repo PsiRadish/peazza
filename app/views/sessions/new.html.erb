@@ -1,2 +1,15 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+
+<div class="rise purple col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+  <h2>Sign in</h2>
+  
+  <%= render "shared/flash" %>
+  
+  <%= bootstrap_form_for :account do |f| %>
+    <%= f.text_field :email, placeholder: "Enter your email" %>
+    <%= f.password_field :password, placeholder: "Enter your password"%>
+    <%= f.submit "Submit", class: "btn btn-default" %>
+  <% end %>
+  <p>Or <%= link_to "create an account", new_account_path %>.</p>
+
+</div>

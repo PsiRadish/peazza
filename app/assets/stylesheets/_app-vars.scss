@@ -13,7 +13,7 @@ $body-bg:                   orange;
 
 
 //** Global textual link color.
-$link-color:                                #FFC;
+$link-color:                                #FFFF80;
 $link-hover-color:                          yellow;
 //$link-hover-decoration:                   underline;
 
@@ -37,14 +37,17 @@ $navbar-default-link-disabled-color:        #808000;
 //// New variables
 // $app-bg-color:                              #FC0;
 $navbar-font-size:                          1.1428571428571428571428571428571em;
-$navbar-link-side-margin:                   5px;
+$navbar-link-side-margin:                   0px; //5px;
 $navbar-link-border-radius:                 25px;
 $navbar-link-border-radius-collapsed:       20px;
 $app-navbar-brand-logo-height:              60px;
 
 $app-red:                                   #FF4136;
 $app-orange:                                #FC0;
+$app-purple:                                #9002B8;
 
+$font-size-twelvish:                        0.85714285714285714285714285714286em;
+$line-height-twelvish:                      17.142857142857142857142857142857px;
 
 //// And overrides again
  $body-bg:                                   $app-orange;

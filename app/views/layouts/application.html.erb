@@ -27,6 +27,9 @@
     <nav id="title" class="navbar navbar-default rise">      
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+        <% if flash[:login_out_msg] %>
+          <%= content_tag :span, flash[:login_out_msg], class: "login-out-msg" %>
+        <% end %>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#title-nav" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -44,9 +47,17 @@
           <li><a href="#">Sign up!</a></li>
         </ul> -->
         <ul class="nav navbar-nav navbar-right">
-          <!-- <li><a href="#">Create an account</a></li>
-          <li class="hide-when-collapsed"><span>•</span></li> -->
-          <li><a href="#">Sign in</a></li>
+          <% if @current_account %>
+            <li>
+              <%= link_to @current_account.person.name, account_path(@current_account), class: "active-account-name" %> <br>
+              <%= link_to "Sign out", logout_path, class: "account-sign-out" %>
+            </li>                          <!-- edit_topping_pref_path(@current_account.person -->
+            <li><%= link_to "My Toppings", edit_topping_prefs_path(@current_account.person) %></li>
+            <li><%= link_to "Events", "\#" %></li>
+            <li><%= link_to "Friends", "\#" %></li>
+          <% else %>
+            <li><%= link_to "Sign in", login_path, class: "account-sign-in" %></li>
+          <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>

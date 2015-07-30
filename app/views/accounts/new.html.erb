@@ -1,2 +1,19 @@
-<h1>Accounts#new</h1>
-<p>Find me in app/views/accounts/new.html.erb</p>
+<div class="rise purple col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+  <h2>Create an account</h2>
+  
+  <%= render "shared/flash" %>
+  
+  <%= bootstrap_form_for @account do |form| %>
+    <%= fields_for_with_bootstrap @person do |field| %>
+      <!-- <div class="form-group"> -->
+        <%= field.label :name, class: "control-label required" %>
+        <%= field.text_field :name, placeholder: "Enter your public name", class: "form-control" %>
+      <!-- </div> -->
+    <% end %>
+    <%= form.text_field :email, placeholder: "Enter your email" %>
+    <%= form.password_field :password, placeholder: "Enter your password" %>
+    <%= form.submit "Sign Up", class: "btn btn-default" %>
+  <% end %>
+
+</div>

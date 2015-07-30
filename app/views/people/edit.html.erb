@@ -1,0 +1,30 @@
+<h2>People#edit</h2>
+<p>Find me in app/views/people/edit.html.erb</p>
+
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-danger">
+    <input type="radio" name="options" id="need" autocomplete="off">(♥‿♥)
+  </label>
+  <label class="btn btn-warning">
+    <input type="radio" name="options" id="want" autocomplete="off">(°‿°)
+  </label>
+  <label class="btn btn-default active">
+    <input type="radio" name="options" id="okay" autocomplete="off" checked>○
+  </label>
+  <label class="btn btn-info">
+    <input type="radio" name="options" id="meh" autocomplete="off">(¬_¬)
+  </label>
+  <label class="btn btn-success">
+    <input type="radio" name="options" id="hate" autocomplete="off">(&gt;﹏&lt;)
+  </label>
+</div>
+
+<%= bootstrap_form_for @pref do |f| %>
+  <%= f.form_group :wanted_toppings, class: "btn-group", data: {toggle: "buttons"} do %>
+    <%= f.radio_button_with_bootstrap :wanted_toppings, 0, label: "(♥‿♥)", inline: true, label_class: "btn btn-danger" %>
+    <%= f.radio_button_with_bootstrap :wanted_toppings, 1, label: "(°‿°)", inline: true, label_class: "btn btn-warning" %>
+    <%= f.radio_button_with_bootstrap :wanted_toppings, 2, label: "○", inline: true, label_class: "btn btn-default", checked: true %>
+    <%= f.radio_button_with_bootstrap :wanted_toppings, 3, label: "(¬_¬)", inline: true, label_class: "btn btn-info" %>
+    <%= f.radio_button_with_bootstrap :wanted_toppings, 4, label: "(>﹏<)", inline: true, label_class: "btn btn-success" %>
+  <% end %>
+<% end %>

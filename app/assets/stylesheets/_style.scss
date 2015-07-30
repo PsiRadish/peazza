@@ -19,7 +19,6 @@ html, body
 nav#title
 {
     margin: 0 auto $line-height-computed;
-    // padding: 0;
     
     &.rise
     {
@@ -27,15 +26,8 @@ nav#title
         padding: 0;
     }
     
-    .navbar-header
-    {
-        // margin-bottom: 11px; // pushes collapse drop-down so it starts at bottom border
-    }
-    
     .navbar-toggle
     {
-        // margin-top: 12px;  // 8px + 5 - 1
-        
         border-radius: 15px;
         border-width: 2px;
         border-color: transparent;
@@ -63,14 +55,21 @@ nav#title
     {
         padding-top: ($navbar-height - $app-navbar-brand-logo-height) / 2;
         padding-bottom: ($navbar-height - $app-navbar-brand-logo-height) / 2;
+        margin-right: -30px; // allow some overlap
         
         .h1, img
         {
             color: $navbar-default-color;
             display: inline;
             vertical-align: middle;
+        }
+        .h1
+        {
+            white-space:  nowrap;
             margin: 0;
         }
+        
+        
     }
     .navbar-brand:hover,
     .navbar-brand:focus
@@ -82,6 +81,16 @@ nav#title
         }
     }
     
+    .login-out-msg
+    {
+        font-size: 0.85714285714285714285714285714286em;
+        display: inline-block;
+        padding: $navbar-padding-vertical $navbar-padding-horizontal;
+        line-height: $line-height-computed;
+        
+        display: none;  // no time to make this play nice with narrow display
+    }
+    
     #title-nav
     {
         font-size: $navbar-font-size;
@@ -89,28 +98,56 @@ nav#title
     
     .navbar-nav
     {
-        li > a
+        li > a.active-account-name
         {
-            // font-weight: 700;
+            font-weight: 700;
         }
-    }
-    
-    .navbar-right
-    {
-        margin-right: $navbar-padding-horizontal;
     }
 }
 
-@media (min-width: $grid-float-breakpoint)     // navbar uncollapsed
+@media (min-width: $grid-float-breakpoint) // navbar uncollapsed
 {
     .navbar-nav
     {
+        text-align: center;
+        
         li > a
         {
             margin: ($navbar-padding-vertical / 2) $navbar-link-side-margin;
-            padding: ($navbar-padding-vertical / 2) $navbar-padding-horizontal
+            padding: ($navbar-padding-vertical / 2) $navbar-padding-horizontal;
+            
+            &.active-account-name, &.account-sign-out,
+            {
+                display: inline-block;
+                padding-top: 2.5px;       // TODREAM: refactor to use variables + math to reach the same value
+                padding-bottom: 2.5px;    // TODREAM: refactor to use variables + math to reach the same value
+            }
+            &.active-account-name
+            {
+                margin-bottom: 0;
+                margin-left: auto;
+                margin-right: auto;
+                
+                &:hover, &:focus
+                {
+                    margin-bottom: -2px;
+                }
+            }
+            
+            &.account-sign-out
+            {   
+                padding-top: 0;
+                margin-top: 0;
+                font-size: 0.75em;
+                
+                &:hover, &:focus
+                {
+                    padding-top: 0;
+                    margin-top: -2px;
+                }
+            }
         }
-        li > a:hover, li > a:focus
+        li > a:hover, li > a:focus //, li > a.active-account-name:hover, li > a.active-account-name:focus
         {
             border-radius: $navbar-link-border-radius;
             border: $navbar-default-link-hover-color 2px solid;
@@ -123,6 +160,11 @@ nav#title
             padding: $navbar-padding-vertical $navbar-padding-horizontal;
             line-height: $line-height-computed;
         }
+        
+        // .account-sign-in
+        // {
+        //     margin-right: $navbar-padding-horizontal;
+        // }
     }
 }
 
@@ -150,6 +192,20 @@ nav#title
             .hide-when-collapsed
             {
                 display: none;
+            }
+            
+            li > a
+            {
+                display: inline-block;
+                
+                &.account-sign-out
+                {
+                    float: right;
+                }
+            }
+            li > br
+            {
+                display: none;  // OMG hack LOL
             }
             
             li > a:hover, li > a:focus

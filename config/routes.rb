@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   
   get 'home/index'
   
-  resources :accounts, only: [:new, :create, :show]  
+  resources :accounts, only: [:new, :create, :show]
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+  
+  # resources :people, as: 'topping_prefs', only: [:edit, :update]
+  get 'topping_prefs/:id/edit', to: 'people#edit', as: 'edit_topping_prefs'
+  resources :people, only: [:update, :show]
+  
+  resources :events
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
