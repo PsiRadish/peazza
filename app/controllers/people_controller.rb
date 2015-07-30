@@ -2,23 +2,16 @@ class PeopleController < ApplicationController
     before_action :is_authenticated?, only: [:edit, :update]
     
     def edit
-        #render plain: radio_button_without_bootstrap :wanted_toppings, 0
-        # rconsole.log "Ruby: Toppings edit action started."
-        
         @preferences_form = PreferencesForm.new
-        # rconsole.log "Ruby: Done initializing new PreferencesForm."
         @preferences_form.populate_from(@current_account.person)
-        # rconsole.log "Ruby: Done populating new PreferencesForm."
         
         @all_toppings = Topping.order(:category, :name);
         
         # render json: @preferences_form
-        # rconsole.log "Ruby: Toppings edit action complete."
     end
   
     def update
         # render json: params
-        #prefs = params[:preferences_form]
         
         person = Person.find(params[:id])
         clean_params = params.require(:preferences_form).permit(PreferencesForm.field_names)
@@ -43,14 +36,10 @@ class PeopleController < ApplicationController
                 
                 if topping and list_name != "unlisted_toppings"
                     person.public_send(list_name) << topping
-                    
-                    if !flash[:success]
-                        flash[:success] = "Your topping preferences have been updated."
-                    end
                 end
             end
             
-            #flash[:success] = "Your topping preferences have been updated."
+            flash[:success] = "Your topping preferences have been updated."
             
             person.save
         else

@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
     before_action :is_authenticated?
     
-    
     #Event
     # id: 1
     # account_id: 3
@@ -25,9 +24,9 @@ class EventsController < ApplicationController
     end
     
     def create
-        new
+        new_event = Event.create blablabla
         
-        redirect_to event_path(event)
+        redirect_to event_path(new_event)
     end
     
     def edit
@@ -39,23 +38,41 @@ class EventsController < ApplicationController
     def destroy
     end
     
-    def full_location_string
-        #{}"#{self.location_street_address}, #{self.location_city}"
-        str = ''
-        if self.location_street_address
-            str += self.location_street_address
-            if self.location_city or self.location_state
-                str += ', '
+    private #############
+    
+    # data structure to help with formulating pizzas
+    GroupToppings = Struct.new(:needed_toppings, :wanted_toppings, :mehed_toppings, :hated_toppings) do
+        def initialize(*args)
+            super(*args)
+            
+            self.needed_toppings = {}
+            self.wanted_toppings = {}
+            self.mehed_toppings = {}
+            self.hated_toppings = {}
+        end
+    end
+    
+    def formulate_pizzas people
+        groups_members = [[]]
+        groups_toppings = [ Struct::GroupToppings.new ]
+        
+        i = 0
+        people.each do |person|
+            groups_members[i] << person.id
+            groups_toppings[i].members.each do |list_name|
+                if person != people.first
+                    # LOGIC
+                end
+                
+                
+                
+                person_arr = person.public_send(list_name).pluck(:id)
+                person_hash = person_arr.reduce({}){ |hash, id| hash[id] = true; hash }
+                group_hash = group_toppings[i][list_name]
+                
+                group_hash = group_hash.merge(person_hash)
             end
         end
-        if self.location_city
-            str += self.location_city
-            if self.location_state
-                str += ', '
-            end
-        end
-        str += self.location_state ? self.location_state : ''
-        str += self.location_zip ? self.location_zip : ''
     end
     
 end
