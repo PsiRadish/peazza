@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'friendships/index'
+
+  get 'events/index'
+
+  get 'events/new'
+
+  get 'events/create'
+
+  get 'events/edit'
+
+  get 'events/show'
+
+  get 'events/update'
+
+  get 'events/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -19,6 +35,8 @@ Rails.application.routes.draw do
   resources :people, only: [:update, :show]
   
   resources :events
+  
+  resources :friendships, only: [:index]
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

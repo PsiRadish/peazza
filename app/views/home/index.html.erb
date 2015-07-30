@@ -2,5 +2,7 @@
 <div id="welcome" class="rise purple col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <h2>Welcome!</h2>
     <p>We help you bring your pizza into harmony.</p>
-    <a href="<%= new_account_path %>"><h3>Sign up, great one!</h3></a>
+    <% if !@current_account %>
+      <a href="<%= new_account_path %>"><h3>Sign up, great one!</h3></a>
+    <% end %>
 </div>

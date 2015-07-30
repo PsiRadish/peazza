@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Pizza'n Harmony</title>
+  <meta charset="utf-8">
   
   <!-- Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
@@ -17,15 +18,17 @@
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
-  <%= include_gon %>
+  <!--%= include_gon %-->
+  <%= javascript_include_tag(:rconsole) if Rails.env.development? %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
 </head>
 <body>
 
 <div id="uber-container" class="container-fluid">
   <div class="row">
-    <nav id="title" class="navbar navbar-default rise">      
+    <nav id="title" class="navbar navbar-default rise">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <% if flash[:login_out_msg] %>
@@ -54,8 +57,8 @@
               <%= link_to "Sign out", logout_path, class: "account-sign-out" %>
             </li>                          <!-- edit_topping_pref_path(@current_account.person -->
             <li><%= link_to "My Toppings", edit_topping_prefs_path(@current_account.person) %></li>
-            <li><%= link_to "Events", "\#" %></li>
-            <li><%= link_to "Friends", "\#" %></li>
+            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Friends", friendships_path %></li>
           <% else %>
             <li><%= link_to "Sign in", login_path, class: "account-sign-in" %></li>
           <% end %>

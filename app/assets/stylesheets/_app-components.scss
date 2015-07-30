@@ -59,8 +59,8 @@ br
     .well
     {
         // color: initial;
-        // border-color: mix(black, $bgcolor, 36%) $bgcolor mix(white, $bgcolor, 36%);
-        @include color-well(initial, $bgcolor);
+        // @include color-well(initial, $bgcolor);  // stupid IE
+        @include color-well(black, $bgcolor);
     }
 }
 
