@@ -1,30 +1,45 @@
-<h2>People#edit</h2>
-<p>Find me in app/views/people/edit.html.erb</p>
+<div class="rise purple col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+<!-- <div class="rise purple col-sm-11 col-md-10 col-lg-9 margin-h-auto"> -->
 
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-danger">
-    <input type="radio" name="options" id="need" autocomplete="off">(♥‿♥)
-  </label>
-  <label class="btn btn-warning">
-    <input type="radio" name="options" id="want" autocomplete="off">(°‿°)
-  </label>
-  <label class="btn btn-default active">
-    <input type="radio" name="options" id="okay" autocomplete="off" checked>○
-  </label>
-  <label class="btn btn-info">
-    <input type="radio" name="options" id="meh" autocomplete="off">(¬_¬)
-  </label>
-  <label class="btn btn-success">
-    <input type="radio" name="options" id="hate" autocomplete="off">(&gt;﹏&lt;)
-  </label>
-</div>
-
-<%= bootstrap_form_for @pref do |f| %>
-  <%= f.form_group :wanted_toppings, class: "btn-group", data: {toggle: "buttons"} do %>
-    <%= f.radio_button_with_bootstrap :wanted_toppings, 0, label: "(♥‿♥)", inline: true, label_class: "btn btn-danger" %>
-    <%= f.radio_button_with_bootstrap :wanted_toppings, 1, label: "(°‿°)", inline: true, label_class: "btn btn-warning" %>
-    <%= f.radio_button_with_bootstrap :wanted_toppings, 2, label: "○", inline: true, label_class: "btn btn-default", checked: true %>
-    <%= f.radio_button_with_bootstrap :wanted_toppings, 3, label: "(¬_¬)", inline: true, label_class: "btn btn-info" %>
-    <%= f.radio_button_with_bootstrap :wanted_toppings, 4, label: "(>﹏<)", inline: true, label_class: "btn btn-success" %>
+  <h2>Topping Preferences</h2>
+  
+  <%= bootstrap_form_for @preferences_form, url:'/people/:id' do |f| %>
+  <!--%= bootstrap_form_tag , method: :put, do %-->
+  
+  <div class="well well-sm">
+  <table id="topping-prefs-table"><tbody>
+    <thead>
+      <th>Topping</th> <th>Selection</th> <th></th>
+    </thead>
+    <tr>
+      <td>mozzarella</td>
+      <td>
+      <%= f.form_group :topping1, class: "btn-group", data: {toggle: "buttons"} do %>
+        <%= f.radio_button_with_bootstrap :topping1, :needed_toppings, label: "(♥‿♥)", inline: true, label_class: "btn btn-sm btn-danger", label_title: "I need it!" %>
+        <%= f.radio_button_with_bootstrap :topping1, :wanted_toppings, label: "(°‿°)", inline: true, label_class: "btn btn-sm btn-warning", label_title: "I want it." %>
+        <%= f.radio_button_with_bootstrap :topping1, :unlisted_toppings, label: "○", inline: true, label_class: "btn btn-sm btn-default", label_title: "I don't care." %>
+        <%= f.radio_button_with_bootstrap :topping1, :mehed_toppings, label: "(¬_¬)", inline: true, label_class: "btn btn-sm btn-info", label_title: "It's alright I guess..." %>
+        <%= f.radio_button_with_bootstrap :topping1, :hated_toppings, label: "(>﹏<)", inline: true, label_class: "btn btn-sm btn-success", label_title: "I can't eat that!" %>
+      <% end %>
+      </td>
+      <td class="pref-descriptor">I don't care.</td>
+    </tr>
+    <tr>
+      <td>red sauce</td>
+      <td>
+      <%= f.form_group :topping2, class: "btn-group", data: {toggle: "buttons"} do %>
+        <%= f.radio_button_with_bootstrap :topping2, :needed_toppings, label: "(♥‿♥)", inline: true, label_class: "btn btn-sm btn-danger", label_title: "I need it!" %>
+        <%= f.radio_button_with_bootstrap :topping2, :wanted_toppings, label: "(°‿°)", inline: true, label_class: "btn btn-sm btn-warning", label_title: "I want it." %>
+        <%= f.radio_button_with_bootstrap :topping2, :unlisted_toppings, label: "○", inline: true, label_class: "btn btn-sm btn-default", label_title: "I don't care." %>
+        <%= f.radio_button_with_bootstrap :topping2, :mehed_toppings, label: "(¬_¬)", inline: true, label_class: "btn btn-sm btn-info", label_title: "It's alright I guess..." %>
+        <%= f.radio_button_with_bootstrap :topping2, :hated_toppings, label: "(>﹏<)", inline: true, label_class: "btn btn-sm btn-success", label_title: "I can't eat that!" %>
+      <% end %>
+      </td>
+      <td class="pref-descriptor">I don't care.</td>
+    </tr>
+  </tbody></table>
+  </div>
+  <%= f.submit "Submit", method: :put %>
   <% end %>
-<% end %>
+
+</div>

@@ -8,6 +8,11 @@ h1, h2, h3, .h1, .h2, .h3
 {
     font-family: Pacifico, Quicksand, serif;
 }
+h2
+{
+    margin-bottom: $line-height-computed;
+}
+
 br
 {
     line-height: 0;
@@ -32,15 +37,16 @@ br
 {
     padding: 9px;
 }
-.rise-sm, .well-sm
+.rise-sm
 {
-    border-radius: 3px;
+    border-radius: $border-radius-small;
 }
 
-@mixin color-well($fgcolor, $bgcolor)
+@mixin color-well($fgcolor, $bordercolor)
 {
     color: $fgcolor;
-    border-color: mix(black, $bgcolor, 36%)  $bgcolor  mix(white, $bgcolor, 36%);
+    border-color: mix(black, $bordercolor, 36%)  $bordercolor  mix(white, $bordercolor, 36%);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 @mixin color-rise($fgcolor, $bgcolor)
@@ -70,4 +76,86 @@ br
 {
     // @include color-rise(white, purple);
     @include color-rise(white, $app-purple);
+}
+
+// define colors for different button states
+@mixin app-radio-button-states($color, $background, $border) 
+{
+    $color-dark:      mix(black, $color, 40%);
+    $background-dark: mix(black, $background, 50%);
+    $border-dark:     mix(black, $border, 50%);
+    
+    $color-dim:       mix(black, $color, 25%);
+    $background-dim:  mix(black, $background, 35%);
+    $border-dim:      mix(black, $border, 35%);
+    
+    color:            $color-dark;
+    background-color: $background-dark;
+    border-color:     $border-dark;
+    
+    &:focus,
+    &.focus 
+    {
+                   color: $color-dim;
+        background-color: $background-dim;
+            border-color: $border-dim;
+    }
+    &:hover 
+    {
+                   color: $color-dim;
+        background-color: $background-dim;
+            border-color: $border-dim;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle 
+    {
+                   color: $color;
+        background-color: $background;
+            border-color: $border;
+
+        &:hover,
+        &:focus,
+        &.focus 
+        {
+                       color: $color;
+            background-color: $background;
+                border-color: $border;
+        }
+    }
+}
+.btn-default.radio-inline
+{
+    @include app-radio-button-states($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+.btn-primary.radio-inline
+{
+    @include app-radio-button-states($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+// Success appears as green
+.btn-success.radio-inline
+{
+    @include app-radio-button-states($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+// Info appears as blue-green
+.btn-info.radio-inline
+{
+    @include app-radio-button-states($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+// Warning appears as orange
+.btn-warning.radio-inline
+{
+    @include app-radio-button-states($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger.radio-inline
+{
+    @include app-radio-button-states($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+
+.margin-h-auto
+{
+    margin-left: auto;
+    margin-right: auto;
 }

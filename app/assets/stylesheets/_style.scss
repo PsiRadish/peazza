@@ -11,10 +11,10 @@ html, body
     max-width: 1032px;
 }
 
-.navbar
-{
-    z-index:                    9001;
-}
+// .navbar
+// {
+//     z-index:  9001;
+// }
 
 nav#title
 {
@@ -222,4 +222,46 @@ section#content
 {
     z-index: 0;
     // font-weight: 700;
+}
+
+
+///// topping prefs page /////
+
+#topping-prefs-table
+{
+    width: 100%;
+    
+    tr:nth-child(odd)
+    {
+        background-color: transparent;
+    }
+    tr:nth-child(even), thead
+    {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    tr
+    {
+        vertical-align: bottom;
+    }
+    
+    td > .form-group
+    {
+        margin-bottom: 0;
+        margin-top: 3px;
+    }
+    
+    // td:first-child, td:nth-child(2)
+    // {
+    //     white-space: nowrap;
+    // }
+    // td:last-child
+    // {
+    //     width: 99%;
+    // }
+    
+    td:nth-child(2)
+    {
+        margins: 0 auto;
+    }
 }

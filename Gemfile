@@ -30,8 +30,11 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootswatch-rails', '~> 3.3.5'
 
 #gem 'bootstrap_form'
-gem 'bootstrap_form', :git => "git://github.com/PsiRadish/rails-bootstrap-forms", :branch => "master"  # customized to format inline form errors as full sentences with no duplicate messages
+# customized bootstrap_form to format inline form errors as full sentences with no duplicate messages
+# also adds label_title option to radio_button helper
+gem 'bootstrap_form', :git => "git://github.com/PsiRadish/rails-bootstrap-forms", :branch => "master"
 
+gem 'gon'
 
 gem 'rails_12factor', group: :production
 

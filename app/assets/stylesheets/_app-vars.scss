@@ -11,6 +11,8 @@ $font-family-base:          Arimo, Merriweather Sans, "Helvetica Neue", Helvetic
 
 $body-bg:                   orange;
 
+$border-radius-small:                       3px;
+$btn-border-radius-small:                   4px;
 
 //** Global textual link color.
 $link-color:                                #FFFF80;
@@ -50,7 +52,5 @@ $font-size-twelvish:                        0.85714285714285714285714285714286em
 $line-height-twelvish:                      17.142857142857142857142857142857px;
 
 //// And overrides again
- $body-bg:                                   $app-orange;
-//$body-bg:                                   $app-red;
-//$navbar-default-bg:                         $app-orange;
- $navbar-default-bg:                         $app-red;
+$body-bg:                                   $app-orange;
+$navbar-default-bg:                         $app-red;
