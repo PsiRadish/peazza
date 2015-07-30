@@ -54,24 +54,36 @@ class EventsController < ApplicationController
     
     def formulate_pizzas people
         groups_members = [[]]
-        groups_toppings = [ Struct::GroupToppings.new ]
+        groups = [ { members: [], toppings: Struct::GroupToppings.new } ]
         
-        i = 0
         people.each do |person|
-            groups_members[i] << person.id
-            groups_toppings[i].members.each do |list_name|
+            
+            groups[i][:members] << person.id
+            groups[i][:toppings].members.each do |list_name|
+                # want group and person topping lists as hashes with topping_ids as keys, because merge
+                
+                person_arr = person.public_send(list_name).pluck(:id) # I understand this much
+                person_hash = person_arr.reduce({}){ |hash, id| hash[id] = true; hash } # but not quite this much
+                
+                
+                group_hash = group_toppings[i][list_name]
+                
                 if person != people.first
                     # LOGIC
                 end
                 
-                
-                
-                person_arr = person.public_send(list_name).pluck(:id)
-                person_hash = person_arr.reduce({}){ |hash, id| hash[id] = true; hash }
-                group_hash = group_toppings[i][list_name]
-                
                 group_hash = group_hash.merge(person_hash)
             end
+        end
+    end
+    
+    def add_person_to_group person, group
+        group[:members] << person.id
+        
+        # merge each of the 4 topping lists
+        group[:toppings].members.each do |list_name|
+            # want group and person topping lists as hashes with topping_ids as keys, because merge
+            
         end
     end
     
