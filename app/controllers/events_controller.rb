@@ -53,39 +53,43 @@ class EventsController < ApplicationController
     end
     
     def formulate_pizzas people
-        groups_members = [[]]
         groups = [ { members: [], toppings: Struct::GroupToppings.new } ]
         
         people.each do |person|
-            
-            groups[i][:members] << person.id
-            groups[i][:toppings].members.each do |list_name|
-                # want group and person topping lists as hashes with topping_ids as keys, because merge
-                
-                person_arr = person.public_send(list_name).pluck(:id) # I understand this much
-                person_hash = person_arr.reduce({}){ |hash, id| hash[id] = true; hash } # but not quite this much
-                
-                
-                group_hash = group_toppings[i][list_name]
-                
-                if person != people.first
-                    # LOGIC
-                end
-                
-                group_hash = group_hash.merge(person_hash)
+            if groups[0][:members].empty? # first iteration of loop
+                add_person_to_group person groups[0] # initialize group with first person
+                next # next person
             end
+            
+            
         end
     end
     
     def add_person_to_group person, group
-        group[:members] << person.id
+        group_members = group[:members]
+        group_toppings = group[:toppings]
+        
+        # add new person_id to group members
+        group_members << person.id
         
         # merge each of the 4 topping lists
-        group[:toppings].members.each do |list_name|
+        group_toppings.members.each do |curr_list_name|
             # want group and person topping lists as hashes with topping_ids as keys, because merge
             
+            person_hash = person_toppings_to_hash(person, curr_list_name)
+            
+            group_hash = group_toppings[curr_list_name]
+            
+            # and now merge the lists
+            group_hash = group_hash.merge(person_hash)
         end
+        
+        group
     end
     
+    def person_toppings_to_hash person, list_name
+        person_arr = person.public_send(list_name).pluck(:id) # I understand this much
+        person_hash = person_arr.reduce({}){|hash, id| hash[id] = true; hash } # but not quite this much
+    end
 end
 
