@@ -1,0 +1,17 @@
+<div class="row">
+<div class="rise black col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+  <h3>And now some disharmony...</h3>
+  <p>Enjoy the carefully crafted melody and distinctive counter-point of what Reddit has to say about your pizza.</p>
+  
+  <!--%= render plain: @reddit %-->
+  
+  <ol>
+    <% @reddit.each do |result| %>
+      <% attributes = result.attributes %>
+      <li>
+        <%= link_to attributes[:title], attributes[:url] %> • <%= link_to "permalink", "http://www.reddit.com#{attributes[:permalink]}" %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+</div>

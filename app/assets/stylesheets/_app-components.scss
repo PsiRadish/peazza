@@ -102,6 +102,10 @@ select > option.disabled
     // @include color-rise(white, purple);
     @include color-rise(white, $app-purple);
 }
+.rise.black
+{
+    @include color-rise(white, #303030);
+}
 
 // define colors for different button states
 @mixin app-radio-button-states($color, $background, $border) 

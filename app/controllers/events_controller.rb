@@ -17,6 +17,11 @@ class EventsController < ApplicationController
     
     def show
         @event = Event.find params[:id]
+        
+        # nsfw:no
+        # render json: reddit_query_data[0].attributes  # private instance method
+        @reddit = reddit_query_data  # private instance method
+        #render json: @reddit
     end
     
     def new
@@ -40,6 +45,10 @@ class EventsController < ApplicationController
     
     def edit
         @event = Event.find params[:id]
+        
+        # render json: reddit_query_data[0].attributes  # private instance method
+        @reddit = reddit_query_data  # private instance method
+        #render json: @reddit
     end
     
     def update
@@ -174,5 +183,24 @@ class EventsController < ApplicationController
     def share_keys? hash1, hash2
         hash1.keys.any? {|k| hash2.key?(k)}
     end
+    
+    def reddit_query_data
+        sum_toppings = nil
+        
+        @event.pizzas.each do |pizza|
+            if sum_toppings == nil
+                sum_toppings = pizza.toppings
+                next
+            end
+            
+            sum_toppings += pizza.toppings
+        end
+        
+        sum_toppings = sum_toppings.limit(2).pluck(:name).uniq
+        
+        query = "pizza " + sum_toppings.join(' ') + ' nsfw:no'
+        
+        RedditKit.search(query).results
+        # return query
+    end
 end
-

@@ -38,3 +38,29 @@ Topping.create name:"pineapple", category:"plant"
 Topping.create name:"red onions", category:"plant"
 Topping.create name:"roma tomatoes", category:"plant"
 Topping.create name:"spinach", category:"plant"
+
+kp = Person.create name: "Kirika Yuumura"
+ka = Account.create email: "woobie@noir.com", password: "Mireyu"
+kp.account = ka
+kp.save
+ka.save
+
+mp = Person.create name: "D of Corsica"
+ma = Account.create email: "tsundere@noir.com", password: "yoisho"
+mp.account = ma
+mp.save
+ma.save
+
+cp = Person.create name: "OMG FORK ^_^"
+ca = Account.create email: "chloe@soldats.org", password: "Kirika"
+cp.account = ca
+cp.save
+ca.save
+
+ka.friends << [ma, ca]
+ma.friends << ka
+ca.friends << [ma, ka]
+
+ka.save
+ma.save
+ca.save
