@@ -185,23 +185,19 @@ class EventsController < ApplicationController
     end
     
     def reddit_query_data
-        sum_toppings = nil
+        sum_toppings = []
         
         @event.pizzas.each do |pizza|
-            if sum_toppings == nil
-                sum_toppings = pizza.toppings
-                next
-            end
-            
-            sum_toppings += pizza.toppings
+            sum_toppings += pizza.toppings.pluck(:name)
         end
         
-        # sum_toppings = sum_toppings.limit(2).pluck(:name).uniq  # this makes heroku sad for some reason
-        sum_toppings = sum_toppings.pluck(:name).uniq
-        sum_toppings = sum_toppings[0]+sum_toppings[1]  # terrible, but I'M OUT OF TIME GET TO THE CHOPPA
+        sum_toppings.uniq!
         
+        query_toppings = sum_toppings[0, 2] # confine number of toppings or reddit search won't find anything
         
-        query = "pizza " + sum_toppings.join(' ') + ' nsfw:no'
+        # rconsole.log query_toppings.join(' ')
+        
+        query = "pizza " + query_toppings.join(' ') + ' nsfw:no'
         
         RedditKit.search(query).results
         # return query

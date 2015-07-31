@@ -6,12 +6,16 @@
   <!--%= render plain: @reddit %-->
   
   <ol>
+   <% if @reddit.respond_to? :each %>
     <% @reddit.each do |result| %>
+     <% if result.attributes %>
       <% attributes = result.attributes %>
       <li>
         <%= link_to attributes[:title], attributes[:url] %> • <%= link_to "permalink", "http://www.reddit.com#{attributes[:permalink]}" %>
       </li>
+     <% end %>
     <% end %>
+   <% end %>
   </ol>
 </div>
 </div>
