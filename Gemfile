@@ -36,7 +36,7 @@ gem 'bootswatch-rails', '~> 3.3.5'
 # also adds label_title option to radio_button helper
 gem 'bootstrap_form', :git => "git://github.com/PsiRadish/rails-bootstrap-forms", :branch => "master"
 
-# gem 'gon'
+gem 'redditkit', '~> 1.0.1'
 
 gem 'rails_12factor', group: :production
 

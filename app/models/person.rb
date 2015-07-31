@@ -11,4 +11,11 @@ class Person < ActiveRecord::Base
     
     has_many :invitations
     has_many :events, :through => :invitations
+    
+    
+    def toppings_list_to_hash list_name
+        person_arr = self.public_send(list_name).pluck(:id) # I understand this much
+        person_hash = person_arr.reduce({}){|hash, id| hash[id] = true; hash } # but not quite this much
+    end
+    
 end

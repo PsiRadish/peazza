@@ -1714,12 +1714,12 @@ FTPFilename=
 ForcedReadOnly=0
 
 [File49]
-DataLen=2333
+DataLen=1772
 TopLine=0
-SelStart=51
-SelStop=83
+SelStart=714
+SelStop=708
 RectSel=0
-CaretPos=83
+CaretPos=708
 CaretVisible=1
 TopLineAlt=0
 SelStartAlt=0
@@ -13231,7 +13231,7 @@ ForcedReadOnly=0
 [EditPad Project]
 Managed=1
 BookmarksProjectWide=0
-ClipCollection=C:\Users\Radish\AppData\Roaming\JGsoft\Clip Collections\CSS.atc
+ClipCollection=C:\Users\Radish\AppData\Roaming\JGsoft\Clip Collections\HTML.atc
 TabIndex=15
 FirstFileTab=0
 FileCount=378

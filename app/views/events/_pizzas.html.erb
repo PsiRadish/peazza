@@ -1,0 +1,36 @@
+
+<div class="rise red">
+  <h5>Event Name</h5>
+  <h3> <%= @event.name %> </h3>
+  <% if !@event.people.empty? %>
+    <h5>Participants</h5>
+    <%= @event.people.map(&:name).join(", ") %>
+  <% end %>
+  <% if !@event.pizzas.empty? %>
+    <h5>Pizzas</h5>
+    <div class="well well-sm">
+      <% @event.pizzas.each do |pizza| %>
+        <h5><%= pizza.name %></h5>
+        <ul>
+          <% pizza.toppings.each do |topping| %>
+            <li><%= topping.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+  <% if !@event.full_location_string.empty? %>
+    <p>at <%= @event.full_location_string %></p>
+  <% end %>
+  <% if @event.date %>
+    <p>on <%= @event.date %></p>
+  <% end %>
+  <% if @current_account.id == @event.account_id && action_name == 'edit' %>
+    <%= form_for @event do |f| %>
+      <div class="btn-group">
+        <button class="btn btn-primary" type="submit">Recalculate Toppings</button>
+        <%= link_to "Delete This Event", @event, method: :delete, class: 'btn btn-warning', data: {confirm: "Are you sure?"} %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -6,16 +6,41 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 }
 h1, h2, h3, .h1, .h2, .h3
 {
-    font-family: Pacifico, Quicksand, serif;
+    &:not(.no-cursive)
+    {
+        font-family: Pacifico, Quicksand, serif;
+    }
 }
-h2
+h2, .h2
 {
     margin-bottom: $line-height-computed;
+}
+h3, .h3
+{
+    margin-top: ($line-height-computed / 2);
+}
+h5, h6, .h5, .h6
+{
+    font-weight: 700
 }
 
 br
 {
     line-height: 0;
+}
+
+.form-inline
+{
+    .form-group
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+select > option.disabled
+{
+    color: #999999;
 }
 
 .rise   // like a well, but opposite

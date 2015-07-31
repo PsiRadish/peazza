@@ -1,2 +1,40 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="rise purple col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+  <h2>Your Events</h2>
+  
+  <%= render "shared/flash" %>
+  
+  <% if !@events.empty? %>
+    <% @events.each do |event| %>
+      <div class="rise red">
+        <h5>Event Name</h5>
+        <h3>
+          <% if @current_account.id == event.account_id %>
+            <%= link_to event.name, edit_event_path(event) %>
+          <% else %>
+            <%= link_to event.name, event_path(event) %>
+          <% end %>
+        </h3>
+        <% if !event.people.empty? %>
+          <h5>Participants</h5>
+          <%= event.people.map(&:name).join(", ") %>
+        <% end %>
+        <% if !event.pizzas.empty? %>
+          <h5>Pizzas</h5>
+          <%= event.pizzas.map(&:name).join(", ") %>
+        <% end %>
+        <% if !event.full_location_string.empty? %>
+          <p>at <%= event.full_location_string %></p>
+        <% end %>
+        <% if event.date %>
+          <p>on <%= event.date %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You are not part of any events.</p>
+  <% end %>
+  
+  <%= link_to "New Event", new_event_path, class: 'btn btn-primary' %>
+  
+</div>
