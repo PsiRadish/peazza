@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
     
+    before_filter :configure_charset
     before_action :current_account
+    
     
     def current_account
         @current_account ||= Account.find_by_id(session[:account_id])
@@ -17,5 +19,9 @@ class ApplicationController < ActionController::Base
             
             redirect_to login_path
         end
-    end    
+    end
+    
+    def configure_charset
+        response.headers['Content-type'] = 'text/html; charset=utf-8'
+    end
 end

@@ -20,10 +20,12 @@
     </div>
   <% end %>
   <% if !@event.full_location_string.empty? %>
-    <p>at <%= @event.full_location_string %></p>
+    <h5>At</h5>
+    <p><%= @event.full_location_string %></p>
   <% end %>
   <% if @event.date %>
-    <p>on <%= @event.date %></p>
+    <h5>On</h5>
+    <p><%= @event.date %></p>
   <% end %>
   <% if @current_account.id == @event.account_id && action_name == 'edit' %>
     <%= form_for @event do |f| %>

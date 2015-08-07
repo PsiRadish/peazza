@@ -3,6 +3,7 @@ html, body
 {
     width: 100%;
     // background-color: $app-bg-color;
+    min-width: 320px;
 }
 
 #uber-container
@@ -91,9 +92,28 @@ nav#title
         display: none;  // no time to make this play nice with narrow display
     }
     
+    @media (max-width: 407px) // navbar adjustments at smallness
+    {
+        h1, .h1
+        {
+            font-size: floor($font-size-base * 2.15);  // ~30px
+        }
+        
+        .navbar-toggle
+        {
+            margin-right: 0;
+        }
+        
+        .navbar-brand
+        {
+            padding-left: ($navbar-padding-horizontal - 10);
+        }
+    }
+    
     #title-nav
     {
-        font-size: $navbar-font-size;
+        // font-size: $navbar-font-size;
+        font-size: $font-size-large-ish;
     }
     
     .navbar-nav
@@ -101,6 +121,11 @@ nav#title
         li > a.active-account-name
         {
             font-weight: 700;
+        }
+        
+        .account-sign-out
+        {
+            font-size: $font-size-small;
         }
     }
 }
@@ -138,7 +163,6 @@ nav#title
             {   
                 padding-top: 0;
                 margin-top: 0;
-                font-size: 0.75em;
                 
                 &:hover, &:focus
                 {

@@ -1,4 +1,5 @@
 // components
+$font-size-large-ish:                       floor(($font-size-base * 1.15)) !default; // ~16px
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 {
@@ -19,9 +20,24 @@ h3, .h3
 {
     margin-top: ($line-height-computed / 2);
 }
-h5, h6, .h5, .h6
+h4, h5, h6, .h4, .h5, .h6
 {
-    font-weight: 700
+    font-weight: 700;
+    margin-top: 15px;   // TODO: Find/create an appropriate variable with the same value
+    margin-bottom: 0;
+    
+    &:first-child
+    {
+        margin-top: 0;
+    }
+}
+
+.rise, .well
+{
+    *:last-child
+    {
+        margin-bottom: 0;
+    }
 }
 
 br
@@ -81,12 +97,16 @@ select > option.disabled
     border-color:     mix(black, $bgcolor, 18%);
     //border-color:     darken($bgcolor, 18%);
     
-    .well
+    > .well
     {
         // color: initial;
         // @include color-well(initial, $bgcolor);  // stupid IE
         @include color-well(black, $bgcolor);
     }
+    // .well
+    // {
+    //     color: black;
+    // }
 }
 
 .rise.orange

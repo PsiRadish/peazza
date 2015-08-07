@@ -35,10 +35,13 @@ $navbar-default-link-active-color:          $navbar-default-link-hover-color;
 $navbar-default-link-disabled-color:        #808000;
 // $navbar-default-link-disabled-bg:        transparent;
 
+// $font-size-twelvish:                        0.85714285714285714285714285714286em;
+// $line-height-twelvish:                      17.142857142857142857142857142857px;
+
 
 //// New variables
 // $app-bg-color:                              #FC0;
-$navbar-font-size:                          1.1428571428571428571428571428571em;
+// $navbar-font-size:                          1.1428571428571428571428571428571em;
 $navbar-link-side-margin:                   0px; //5px;
 $navbar-link-border-radius:                 25px;
 $navbar-link-border-radius-collapsed:       20px;
@@ -47,9 +50,6 @@ $app-navbar-brand-logo-height:              60px;
 $app-red:                                   #FF4136;
 $app-orange:                                #FC0;
 $app-purple:                                #9002B8;
-
-$font-size-twelvish:                        0.85714285714285714285714285714286em;
-$line-height-twelvish:                      17.142857142857142857142857142857px;
 
 //// And overrides again
 $body-bg:                                   $app-orange;
