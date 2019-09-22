@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rconsole', '~> 0.1.0', group: :development
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootswatch-rails', '~> 3.3.5'
 
 #gem 'bootstrap_form'
