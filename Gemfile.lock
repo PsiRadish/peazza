@@ -38,6 +38,7 @@ GEM
     autoprefixer-rails (5.2.1.1)
       execjs
       json
+    bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
@@ -63,8 +64,9 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.6.1)
     minitest (5.7.0)
-    multi_json (1.11.2)
+    multi_json (1.13.1)
     multipart-post (2.0.0)
+    pg (0.18.2)
     pg (0.18.2-x86-mingw32)
     rack (1.5.5)
     rack-test (0.6.3)
@@ -106,7 +108,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sprockets (2.12.4)
+    sprockets (2.12.5)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -127,6 +129,7 @@ GEM
       json (>= 1.8.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
