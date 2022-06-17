@@ -38,6 +38,7 @@ GEM
     autoprefixer-rails (5.2.1.1)
       execjs
       json
+    bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
@@ -45,13 +46,15 @@ GEM
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     builder (3.2.2)
+    concurrent-ruby (1.1.10)
     erubis (2.7.0)
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     hike (1.2.3)
     htmlentities (4.3.4)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -65,6 +68,7 @@ GEM
     minitest (5.7.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
+    pg (0.18.2)
     pg (0.18.2-x86-mingw32)
     rack (1.5.5)
     rack-test (0.6.3)
@@ -127,6 +131,7 @@ GEM
       json (>= 1.8.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
